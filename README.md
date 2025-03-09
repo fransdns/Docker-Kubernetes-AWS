@@ -62,21 +62,8 @@ volumen-persistent.yml → Configuración de volúmenes persistentes para almace
 
 🔄 Mecanismos de Resiliencia
 
-✔️ Auto-restart: Kubernetes reinicia los pods si fallan.✔️ Rolling Updates: Actualización sin downtime.✔️ Health Checks: Verificación del estado de los contenedores.✔️ Load Balancing: Distribución eficiente del tráfico con Ingress.
+✔️ Auto-restart: Kubernetes reinicia los pods si fallan.
+✔️ Rolling Updates: Actualización sin downtime.
+✔️ Health Checks: Verificación del estado de los contenedores.
+✔️ Load Balancing: Distribución eficiente del tráfico con Ingress.
 
-🚀 Cómo Implementarlo
-
-Clonar el repositorio:
-
-git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
-
-Aplicar los manifiestos en Kubernetes:
-
-kubectl apply -f k8s/
-
-Verificar los pods en ejecución:
-
-kubectl get pods
-
-Acceder a la aplicación desde el dominio configurado en Ingress.
