@@ -2,7 +2,7 @@
 
 📌 Descripción
 
-Este proyecto automatiza el despliegue de una aplicación compuesta por varios servicios usando FastAPI, MongoDB, OpenAI, MySQL, Gatsby y Nginx. Cada vez que se hace un push al main o se acepta un pull request, se generan nuevas imágenes Docker, se publican en Docker Hub y un cluster de Kubernetes las actualiza automáticamente, garantizando alta disponibilidad y resiliencia.
+Este proyecto automatiza el despliegue de una aplicación desarrollada con FastAPI, MongoDB, OpenAI, MySQL, Gatsby y Nginx. Cada vez que se hace un push al main o se acepta un pull request, se generan nuevas imágenes Docker, se publican en Docker Hub y un cluster de Kubernetes las actualiza automáticamente, garantizando alta disponibilidad y resiliencia.
 
 🛠️ Tecnologías Utilizadas
 
