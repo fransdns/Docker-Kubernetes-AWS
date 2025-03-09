@@ -6,59 +6,59 @@ Este proyecto automatiza el despliegue de una aplicación desarrollada con FastA
 
 🛠️ Tecnologías Utilizadas
 
-FastAPI: API principal.
+* FastAPI: API principal.
 
-MongoDB: Base de datos NoSQL.
+* MongoDB: Base de datos NoSQL.
 
-OpenAI: Integración con modelos de IA.
+* OpenAI: Integración con modelos de IA.
 
-MySQL: Base de datos relacional.
+* MySQL: Base de datos relacional.
 
-Gatsby + Nginx: Frontend y servidor web en una sola imagen.
+* Gatsby + Nginx: Frontend y servidor web en una sola imagen.
 
-Docker & Docker Hub: Contenerización y distribución de imágenes.
+* Docker & Docker Hub: Contenerización y distribución de imágenes.
 
-Kubernetes: Orquestación de contenedores.
+* Kubernetes: Orquestación de contenedores.
 
-AWS Ingress: Administración de tráfico de entrada.
+* AWS Ingress: Administración de tráfico de entrada.
 
 ⚙️ Flujo de Trabajo CI/CD
 
-Código actualizado en main → Se activa el pipeline de CI/CD.
+1._Código actualizado en main → Se activa el pipeline de CI/CD.
 
-Construcción de imágenes Docker → Se generan nuevas imágenes para cada servicio.
+2._Construcción de imágenes Docker → Se generan nuevas imágenes para cada servicio.
 
-Publicación en Docker Hub → Las imágenes son subidas al registro.
+3._Publicación en Docker Hub → Las imágenes son subidas al registro.
 
-Kubernetes actualiza los pods → Descarga las nuevas imágenes y las pone en producción.
+4._Kubernetes actualiza los pods → Descarga las nuevas imágenes y las pone en producción.
 
-Auto-restart de servicios → Kubernetes reinicia cualquier pod que falle.
+5._Auto-restart de servicios → Kubernetes reinicia cualquier pod que falle.
 
 📁 Estructura de Archivos Kubernetes (.yml)
 
-deployment-database.yml → Despliegue de la base de datos MySQL.
+* deployment-database.yml → Despliegue de la base de datos MySQL.
 
-deployment-generate.yml → Despliegue del servicio de generación con OpenAI.
+* deployment-generate.yml → Despliegue del servicio de generación con OpenAI.
 
-deployment-mongo.yml → Despliegue de la base de datos MongoDB.
+* deployment-mongo.yml → Despliegue de la base de datos MongoDB.
 
-deployment-nginx-gatsby.yml → Despliegue del frontend con Gatsby y Nginx en una sola imagen.
+* deployment-nginx-gatsby.yml → Despliegue del frontend con Gatsby y Nginx en una sola imagen.
 
-deployment-user.yml → Despliegue del servicio de usuarios.
+* deployment-user.yml → Despliegue del servicio de usuarios.
 
-ingress-aws.yml → Configuración de Ingress en AWS para manejar tráfico externo.
+* ingress-nginx.yml → Configuración de Ingress en AWS para manejar tráfico externo.
 
-service-database.yml → Servicio para la base de datos MySQL.
+* service-database.yml → Servicio para la base de datos MySQL.
 
-service-generate.yml → Servicio para el backend de generación con OpenAI.
+* service-generate.yml → Servicio para el backend de generación con OpenAI.
 
-service-mongo.yml → Servicio para la base de datos MongoDB.
+* service-mongo.yml → Servicio para la base de datos MongoDB.
 
-service-nginx-gatsby.yml → Servicio para el frontend.
+* service-nginx-gatsby.yml → Servicio para el frontend.
 
-service-user.yml → Servicio para el backend de usuarios.
+* service-user.yml → Servicio para el backend de usuarios.
 
-volumen-persistent.yml → Configuración de volúmenes persistentes para almacenamiento de datos.
+* volumen-persistent.yml → Configuración de volúmenes persistentes para almacenamiento de datos.
 
 🔄 Mecanismos de Resiliencia
 
