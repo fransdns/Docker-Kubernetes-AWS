@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: generate-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: generate-deployment
+  template:
+    metadata:
+      labels:
+        app: generate-deployment
+    spec:
+      containers:
+      - name: generate-container
+        image: narrifyengine/generate-service:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9000
+        env:
+        - name: USER_SERVICE_HOST
+          value: "user-service"
+        - name: API_KEY
+          value: "<API_KEY>"
+        - name: MONGO_URI
+          value: "mongodb://mongo-service:27017"

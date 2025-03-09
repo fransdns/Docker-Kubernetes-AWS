@@ -1,0 +1,68 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-narrify
+  labels:
+    name: ingress-narrify
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:us-east-1:102389127702:certificate/2f9717f7-2e13-4102-ac2b-bd8e5a933fce"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+spec:
+  rules:
+  - http:
+      paths:
+      #ruta para traer el frontend de la web
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nginx-service
+            port: 
+              number: 80
+      #rutas para el generate service
+      - pathType: Prefix
+        path: "/metrics"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/stories"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/dialogs"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/generate"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      #rutas para el user service
+      - pathType: Prefix
+        path: "/auth"
+        backend:
+          service:
+            name: user-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/users"
+        backend:
+          service:
+            name: user-service
+            port: 
+              number: 80
+  ingressClassName: alb      

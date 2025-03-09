@@ -1,0 +1,63 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-nginx-narrify
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /  # Reescribe la URL al acceder a la raíz
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"  # Deshabilita la redirección a HTTPS (útil si no usas SSL)
+spec:
+  rules:
+  - http:
+      paths:
+      #ruta para traer el frontend de la web
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nginx-service
+            port: 
+              number: 80
+      #rutas para el generate service
+      - pathType: Prefix
+        path: "/metrics"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/stories"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/dialogs"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/generate"
+        backend:
+          service:
+            name: generate-service
+            port: 
+              number: 80
+      #rutas para el user service
+      - pathType: Prefix
+        path: "/auth"
+        backend:
+          service:
+            name: user-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: "/users"
+        backend:
+          service:
+            name: user-service
+            port: 
+              number: 80      
